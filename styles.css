@@ -1,0 +1,335 @@
+/*!Глобальные стили*/
+:root {
+  --bg-color: #f3efec;
+  --text-color: #312a4e;
+  --accent-color: #ffab6b;
+  --modal-bg-color: #fff;
+}
+.dark-theme {
+  --modal-bg-color: #1b1b1c;
+  --bg-color: #212121;
+  --text-color: #fff;
+  --accent-color: #441dd0;
+}
+.pink {
+  --accent-color: #ffd1dc;
+}
+.blue {
+  --accent-color: #7fb5b5;
+}
+.purple {
+  --accent-color: #a18594;
+}
+.green {
+  --accent-color: #77dd77;
+}
+body {
+  margin: 5%;
+  margin-top: 0;
+  background-color: var(--bg-color);
+}
+/*!ф*/
+
+/*!шрифты*/
+.themeToggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+@font-face {
+  font-family: "NotoSans";
+  src: url("PT_Sans_Narrow/PTSansNarrow-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoSans";
+  src: url("PT_Sans_Narrow/PTSansNarrow-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.mainHeader {
+  border-bottom: 2px solid black;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bg-color);
+  position: fixed;
+  z-index: 2;
+}
+.name {
+  color: var(--accent-color);
+  margin: 0;
+  font-size: 60px;
+  font-family: "NotoSans";
+  font-weight: bold;
+}
+.addNewClass {
+  color: var(--text-color);
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  font-size: 40px;
+  font-family: "NotoSans";
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.dropDownBtn {
+  border: none;
+  background-color: transparent;
+  color: var(--accent-color);
+  font-size: 50px;
+  font-family: "NotoSans";
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.rotate-90 {
+  transform: rotate(45deg);
+  transition: transform 0.3s ease-in-out;
+}
+.dropDownBtn:not(.rotate-90) {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+.newClassName {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--accent-color);
+  width: 100%;
+  font-size: 64px;
+  color: var(--text-color);
+  margin-left: 2%;
+}
+.addBlock {
+  background-color: var(--bg-color);
+  height: 80px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  transform: translateY(-100%);
+  transition: transform 0.7s ease-in-out;
+  visibility: hidden;
+}
+.show {
+  padding-top: 20px;
+  z-index: 1;
+  transform: translateY(calc(100% - 40px));
+  visibility: visible;
+  display: flex;
+}
+.shiftDown {
+  transform: translateY(80px); /* сдвигаем контент вниз на высоту dropdown'а */
+  transition: transform 0.5s ease-in-out;
+}
+.modalCover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  backdrop-filter: blur(4px) grayscale(50%);
+  -webkit-backdrop-filter: blur(4px) grayscale(50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.opened {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+.formContainer {
+  padding: 36px;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--modal-bg-color);
+  border-radius: 10px;
+  position: relative;
+  z-index: 3;
+}
+
+.formTitle {
+  text-align: center;
+  font-family: "NotoSans";
+  margin-bottom: 54px;
+  color: var(--accent-color);
+  width: 100%;
+  font-size: 52px;
+  font-weight: 900;
+}
+
+.input {
+  margin-bottom: 30px;
+  padding-bottom: 13px;
+  width: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+.input:focus {
+  outline: none;
+}
+.input:last-child {
+  margin-bottom: 0;
+}
+
+.submitButton {
+  font-size: 30px;
+  margin-top: 48px;
+  width: 100%;
+  height: 50px;
+  background-color: var(--accent-color);
+  border: none;
+  font-family: "NotoSans";
+  color: var(--text-color);
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+.submitButton:disabled {
+  opacity: 0.6;
+}
+.submitButton:hover {
+  opacity: 0.5;
+}
+.userHeader {
+  width: 100%;
+  display: flex;
+  font-family: "NotoSans";
+  font-size: 30px;
+  justify-content: space-between;
+}
+.className {
+  margin: 0;
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.titleAndBtn {
+  width: 70%;
+  display: flex;
+  align-items: baseline;
+}
+.addTask {
+  border: none;
+  background-color: transparent;
+  color: var(--accent-color);
+  font-size: 40px;
+  font-family: "NotoSans";
+  font-weight: bold;
+  cursor: pointer;
+}
+.editUserHeader {
+  cursor: pointer;
+  margin-left: 3%;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-image: url("images/karandash.svg");
+  filter: invert(1);
+  background-position: center;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+}
+li::marker {
+  display: none;
+}
+.subTaskContainer {
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+.userTasksList {
+  padding: 0;
+  width: 100%;
+  max-height: 40%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+}
+.userTaskContainer {
+  width: 30%;
+  height: 40%;
+  border-radius: 15px;
+  padding: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.userTaskContainer::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    var(--bg-color),
+    var(--accent-color)
+  );
+  opacity: 0.3;
+}
+.className {
+  position: relative;
+  font-size: 55px;
+  color: var(--text-color);
+}
+.className::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 15%;
+  height: 0.5em;
+  background-color: var(--accent-color);
+  z-index: -1;
+}
+.taskName {
+  font-family: "NotoSans";
+  font-size: 24px;
+  color: var(--text-color);
+}
+.taskNote {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-family: "NotoSans";
+  font-size: 14x;
+}
+.subTaskContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.sub {
+  width: 80%;
+}
+.enlargeTaskBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  z-index: 2;
+}
+.task {
+  justify-content: flex-start;
+  width: 50%;
+  height: 100%;
+  margin-left: auto;
+  padding-top: 5%;
+}
+.taskSubmit {
+  margin-top: auto;
+  margin-bottom: 5%;
+}

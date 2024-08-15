@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToBeDo</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="fonts"
+      href="Noto_Sans/NotoSans-Italic-VariableFont_wdth,wght.ttf , PT_Sans_Narrow/PTSansNarrow-Regular.ttf, Noto_Sans/NotoSans-VariableFont_wdth,wght.ttf"
+    />
+  </head>
+
+  <body>
+    <!--Верхняя панель-->
+    <header class="mainHeader">
+      <button class="themeToggle"><h1 class="name">ToBeDo</h1></button>
+      <button class="dropDownBtn" type="button">+</button>
+    </header>
+    <!---->
+
+    <!--Выдвижная менюшка добавления класса-->
+    <div class="addBlock">
+      <button class="addNewClass" type="button">Добавить</button>
+      <input
+        class="newClassName"
+        value=""
+        type="text"
+        placeholder="введите название подборки"
+      />
+    </div>
+    <!---->
+
+    <main id="root"></main>
+
+    <!--Модалка с добавлением новой таски-->
+    <div class="modalCover" id="addTask">
+      <form name="taskInfoModal" class="formContainer">
+        <h3 class="formTitle">Новая Задача</h3>
+        <div class="userForm">
+          <input
+            required
+            class="input"
+            value=""
+            id="inputTaskName"
+            name="taskTitle"
+            type="text"
+            placeholder="Задача"
+            maxlength="40"
+          />
+          <input
+            value=""
+            class="input"
+            id="inputTaskNote"
+            name="taskNote"
+            type="text"
+            placeholder="Комментарий к задаче"
+            maxlength="200"
+          />
+          <button class="submitButton" type="button" disabled="true">
+            Создать
+          </button>
+        </div>
+      </form>
+    </div>
+    <!---->
+
+    <!--Модалка с редактированием класса-->
+    <div class="modalCover" id="editClassName">
+      <form name="editClassModal" class="formContainer">
+        <h3 class="formTitle">Редактировать</h3>
+        <div class="userForm">
+          <input
+            required
+            class="input"
+            value=""
+            name="editClassTitle"
+            type="text"
+            placeholder="Название класса"
+            maxlength="40"
+          />
+          <select class="input" name="selectClassBG">
+            <option value="" selected>Цвет маркера</option>
+            <option value="pink">Pink</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="green">Green</option>
+          </select>
+          <button
+            class="submitButton classSubmit"
+            type="button"
+            data-form="editClassName"
+          >
+            Изменить
+          </button>
+        </div>
+      </form>
+    </div>
+    <!---->
+
+    <!--Модалка с полной инфой о таске + edit-->
+    <div class="modalCover" id="enlargeTaskInfo">
+      <form class="task formContainer" name="enlargeTaskInfo">
+        <input class="input" name="enlargeTaskTitle" />
+        <input class="input" name="enlargeTaskNote" />
+        <div class="inputAndBtnContainer">
+          <input class="input newEnlargeSubTask" /><button class="addSubTask">
+            +
+          </button>
+        </div>
+        <div class="subTasksList"></div>
+        <button
+          class="submitButton taskSubmit"
+          data-form="enlargeTaskInfo"
+          type="button"
+        >
+          Сохранить
+        </button>
+      </form>
+    </div>
+    <!---->
+
+    <!--Макет для нового класса-->
+    <template class="newClass">
+      <div class="userClassContainer">
+        <header class="userHeader">
+          <div class="titleAndBtn">
+            <h2 class="className"></h2>
+            <button
+              class="editUserHeader"
+              type="button"
+              data-modal="editClassName"
+            ></button>
+          </div>
+          <button class="addTask" type="button" data-modal="addTask">+</button>
+        </header>
+        <ul class="userTasksList"></ul>
+      </div>
+    </template>
+    <!---->
+
+    <!--Макет для новой таски-->
+    <template class="newTask">
+      <li class="userTaskContainer">
+        <button
+          type="button"
+          class="enlargeTaskBtn"
+          data-modal="enlargeTaskInfo"
+        >
+          <h3 class="taskTitle"></h3>
+          <p class="taskNote"></p>
+        </button>
+        <div class="lastSubTask">
+          <!--место для добавления последней таски-->
+        </div>
+        <div class="subTaskContainer">
+          <input
+            value=""
+            class="input sub"
+            name="subTask"
+            type="text"
+            placeholder="подзадачи"
+            maxlength="200"
+          /><button class="addTask">+</button>
+        </div>
+      </li>
+    </template>
+    <!---->
+
+    <!--макет для добавления подзадачи-->
+    <template class="addNewSubTask">
+      <label>
+        <input type="checkbox" class="newSubTask" name="subTask" />
+        <!--!место для лейбла подзадачи-->
+      </label>
+    </template>
+    <!---->
+
+    <script src="script.js"></script>
+  </body>
+</html>
