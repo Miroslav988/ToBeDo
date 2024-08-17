@@ -230,18 +230,24 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-.editUserHeader {
+.deliteClass {
   cursor: pointer;
   margin-left: 3%;
   padding: 0;
   background-color: transparent;
   border: none;
-  background-image: url("images/karandash.svg");
+  background-image: url("images/Group.svg");
   filter: invert(1);
   background-position: center;
   background-size: cover;
   width: 24px;
   height: 24px;
+}
+
+.classThemeToggle {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 li::marker {
   display: none;
@@ -332,4 +338,9 @@ li::marker {
 .taskSubmit {
   margin-top: auto;
   margin-bottom: 5%;
+}
+.taskTitle {
+  font-size: 24px;
+  color: var(--text-color);
+  font-family: "NotoSans";
 }

@@ -66,20 +66,7 @@
     </div>
     <!---->
 
-    <!--Модалка с редактированием класса-->
-    <div class="modalCover" id="editClassName">
-      <form name="editClassModal" class="formContainer">
-        <h3 class="formTitle">Редактировать</h3>
-        <div class="userForm">
-          <input
-            required
-            class="input"
-            value=""
-            name="editClassTitle"
-            type="text"
-            placeholder="Название класса"
-            maxlength="40"
-          />
+    <!--
           <select class="input" name="selectClassBG">
             <option value="" selected>Цвет маркера</option>
             <option value="pink">Pink</option>
@@ -87,17 +74,7 @@
             <option value="purple">Purple</option>
             <option value="green">Green</option>
           </select>
-          <button
-            class="submitButton classSubmit"
-            type="button"
-            data-form="editClassName"
-          >
-            Изменить
-          </button>
-        </div>
-      </form>
-    </div>
-    <!---->
+    -->
 
     <!--Модалка с полной инфой о таске + edit-->
     <div class="modalCover" id="enlargeTaskInfo">
@@ -105,7 +82,7 @@
         <input class="input" name="enlargeTaskTitle" />
         <input class="input" name="enlargeTaskNote" />
         <div class="inputAndBtnContainer">
-          <input class="input newEnlargeSubTask" /><button class="addSubTask">
+          <input class="input subTaskTitleInput" /><button class="addSubTask">
             +
           </button>
         </div>
@@ -126,12 +103,10 @@
       <div class="userClassContainer">
         <header class="userHeader">
           <div class="titleAndBtn">
-            <h2 class="className"></h2>
-            <button
-              class="editUserHeader"
-              type="button"
-              data-modal="editClassName"
-            ></button>
+            <button class="classThemeToggle">
+              <h2 class="className"></h2>
+            </button>
+            <button class="deliteClass" type="button"></button>
           </div>
           <button class="addTask" type="button" data-modal="addTask">+</button>
         </header>
@@ -154,25 +129,14 @@
         <div class="lastSubTask">
           <!--место для добавления последней таски-->
         </div>
-        <div class="subTaskContainer">
-          <input
-            value=""
-            class="input sub"
-            name="subTask"
-            type="text"
-            placeholder="подзадачи"
-            maxlength="200"
-          /><button class="addTask">+</button>
-        </div>
       </li>
     </template>
     <!---->
 
     <!--макет для добавления подзадачи-->
     <template class="addNewSubTask">
-      <label>
-        <input type="checkbox" class="newSubTask" name="subTask" />
-        <!--!место для лейбла подзадачи-->
+      <label class="newSubTaskLable">
+        <input type="checkbox" class="checkNewSubTask" name="subTask" />
       </label>
     </template>
     <!---->
